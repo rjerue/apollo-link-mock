@@ -1,31 +1,46 @@
 {
   "name": "apollo-link-mock",
-  "version": "1.0.1",
-  "description": "",
-  "main": "lib/index.js",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/apollo-link-mock.esm.js",
+  "typings": "dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
-  "homepage": "https://github.com/trojanowski/apollo-link-mock#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/trojanowski/apollo-link-mock.git"
-  },
   "scripts": {
-    "build": "tsc -p .",
-    "prepublish": "npm run build"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test"
   },
-  "author": "Daniel Trojanowski",
-  "license": "MIT",
-  "dependencies": {
-    "apollo-link": "^1.2.3",
-    "apollo-utilities": "^1.0.25",
-    "lodash.isequal": "^4.5.0"
+  "peerDependencies": {
+    "apollo-link": "^1.2.12",
+    "graphql": "^14.4.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && yarn build && git add ."
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "devDependencies": {
-    "@types/graphql": "^14.0.3",
-    "@types/node": "^10.12.2",
-    "graphql": "^14.0.2",
-    "typescript": "^3.1.6"
+    "@types/graphql": "^14.2.3",
+    "@types/jest": "^24.0.16",
+    "apollo-link": "^1.2.12",
+    "graphql": "^14.4.2",
+    "husky": "^3.0.2",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "tsdx": "^0.7.2",
+    "tslib": "^1.10.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "apollo-utilities": "^1.3.2",
+    "lodash.isequal": "^4.5.0"
   }
 }
